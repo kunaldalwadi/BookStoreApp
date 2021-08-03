@@ -1,4 +1,6 @@
-package com.example.bookstoreapp;
+package com.example.bookstoreapp.model;
+
+import com.example.bookstoreapp.BR;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -7,10 +9,11 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "categories")
+@Entity(tableName = "categories_table")
 public class Category extends BaseObservable {
     
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "category_id")
     private int category_id;
     
     @ColumnInfo(name = "category_name")

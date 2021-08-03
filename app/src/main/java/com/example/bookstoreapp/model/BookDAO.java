@@ -1,7 +1,8 @@
-package com.example.bookstoreapp;
+package com.example.bookstoreapp.model;
 
 import java.util.List;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -20,7 +21,10 @@ public interface BookDAO {
     @Delete
     public void deleteBook(Book book);
     
-    @Query("SELECT * FROM Books")
-    public List<Book> getAllBooks();
+    @Query("SELECT * FROM books_table")
+    public LiveData<List<Book>> getAllBooks();
+    
+    @Query("SELECT * FROM books_table where book_category_id==:cat_id")
+    public LiveData<List<Book>> getBooksInCategory(int cat_id);
     
 }

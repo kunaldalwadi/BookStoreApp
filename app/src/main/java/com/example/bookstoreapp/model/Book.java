@@ -1,13 +1,18 @@
-package com.example.bookstoreapp;
+package com.example.bookstoreapp.model;
+
+import com.example.bookstoreapp.BR;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "Books")
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(tableName = "books_table", foreignKeys = @ForeignKey(entity = Category.class, parentColumns = "category_id", childColumns = "book_category_id", onDelete = CASCADE))
 public class Book extends BaseObservable {
     
     @PrimaryKey(autoGenerate = true)
@@ -19,19 +24,18 @@ public class Book extends BaseObservable {
     @ColumnInfo(name = "book_price")
     private String book_price;
     
-    //TODO: Add Foreign Key.
-    @ColumnInfo(name = "book_category")
-    private String book_category;
+    @ColumnInfo(name = "book_category_id")
+    private int book_category_id;
     
     @Ignore
     public Book() {
     }
     
-    public Book(int book_id, String book_name, String book_price, String book_category) {
+    public Book(int book_id, String book_name, String book_price, int book_category_id) {
         this.book_id = book_id;
         this.book_name = book_name;
         this.book_price = book_price;
-        this.book_category = book_category;
+        this.book_category_id = book_category_id;
     }
     
     @Bindable
@@ -65,12 +69,12 @@ public class Book extends BaseObservable {
     }
     
     @Bindable
-    public String getBook_category() {
-        return book_category;
+    public int getBook_category_id() {
+        return book_category_id;
     }
     
-    public void setBook_category(String book_category) {
-        this.book_category = book_category;
-        notifyPropertyChanged(BR.book_category);
+    public void setBook_category_id(int book_category_id) {
+        this.book_category_id = book_category_id;
+        notifyPropertyChanged(BR.book_category_id);
     }
 }

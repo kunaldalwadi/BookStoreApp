@@ -7,11 +7,11 @@
 
         <variable
             name="Category"
-            type="com.example.bookstoreapp.Category" />
+            type="com.example.bookstoreapp.model.Category" />
 
         <variable
             name="Book"
-            type="com.example.bookstoreapp.Book" />
+            type="com.example.bookstoreapp.model.Book" />
 
     </data>
 
