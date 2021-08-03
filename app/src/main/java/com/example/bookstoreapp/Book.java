@@ -4,6 +4,7 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Books")
@@ -18,13 +19,29 @@ public class Book extends BaseObservable {
     @ColumnInfo(name = "book_price")
     private String book_price;
     
+    //TODO: Add Foreign Key.
     @ColumnInfo(name = "book_category")
     private String book_category;
     
-    public Book(String book_name, String book_price, String book_category) {
+    @Ignore
+    public Book() {
+    }
+    
+    public Book(int book_id, String book_name, String book_price, String book_category) {
+        this.book_id = book_id;
         this.book_name = book_name;
         this.book_price = book_price;
         this.book_category = book_category;
+    }
+    
+    @Bindable
+    public int getBook_id() {
+        return book_id;
+    }
+    
+    public void setBook_id(int book_id) {
+        this.book_id = book_id;
+        notifyPropertyChanged(BR.book_id);
     }
     
     @Bindable

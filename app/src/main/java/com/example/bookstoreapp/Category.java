@@ -4,6 +4,7 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "categories")
@@ -18,8 +19,12 @@ public class Category extends BaseObservable {
     @ColumnInfo(name = "category_description")
     private String category_description;
     
+    @Ignore
+    public Category() {
+    }
     
-    public Category(String category_name, String category_description) {
+    public Category(int category_id, String category_name, String category_description) {
+        this.category_id = category_id;
         this.category_name = category_name;
         this.category_description = category_description;
     }
