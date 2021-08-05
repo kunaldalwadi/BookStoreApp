@@ -68,10 +68,10 @@ public abstract class BookStoreAppDatabase extends RoomDatabase {
            mCategoryDAO.insertCategory(category4);
            
            Book book1 = new Book(1,"Who knows","$10",2);
-           Book book2 = new Book(1,"Wolves","$20",3);
-           Book book3 = new Book(1,"Ghoul","$15",1);
-           Book book4 = new Book(1,"Magic","$25",4);
-           Book book5 = new Book(1,"Horizon","$30",3);
+           Book book2 = new Book(2,"Wolves","$20",3);
+           Book book3 = new Book(3,"Ghoul","$15",1);
+           Book book4 = new Book(4,"Magic","$25",4);
+           Book book5 = new Book(5,"Horizon","$30",3);
            
            mBookDAO.insertBook(book1);
            mBookDAO.insertBook(book2);

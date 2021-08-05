@@ -19,7 +19,7 @@ import androidx.lifecycle.LiveData;
 //In this project when we created Repository we are passing Application context
 //hence, we need to extend AndroidViewmodel.
 
-class MainActivityViewModel extends AndroidViewModel {
+public class MainActivityViewModel extends AndroidViewModel {
     
     private CategoryRepository mCategoryRepository;
     private BookRepository mBookRepository;
