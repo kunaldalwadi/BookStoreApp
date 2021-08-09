@@ -13,28 +13,41 @@
             name="Book"
             type="com.example.bookstoreapp.model.Book" />
 
+        <variable
+            name="clickHandlers"
+            type="com.example.bookstoreapp.MainActivity.MainActivityClickHandlers" />
+
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
         tools:context=".MainActivity">
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
 
-<!--        <android.support.design.widget.FloatingActionButton-->
-<!--            android:id="@+id/fab"-->
-<!--            android:layout_gravity="bottom|end"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:srcCompat="@android:drawable/ic_dialog_email"/>-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickHandlers::onButtonClicked}"
+            android:text="Add"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title" />
+
+    </LinearLayout>
 </layout>

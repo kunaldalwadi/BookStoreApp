@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private MainActivityBinding mMainActivityBinding;
     private MainActivityViewModel mMainActivityViewModel;
+    private MainActivityClickHandlers mMainActivityClickHandlers;
     
     
     @Override
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         
         mMainActivityBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mMainActivityClickHandlers = new MainActivityClickHandlers();
+        mMainActivityBinding.setClickHandlers(mMainActivityClickHandlers);
+        
         mMainActivityViewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
         
         mMainActivityViewModel.getAllCategories().observe(this, new Observer<List<Category>>() {
@@ -52,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     
-    public class MainActivityHandlers{
+    public class MainActivityClickHandlers {
         
-        public void onFabClicked(View view){
-            Toast.makeText(getApplicationContext(), "FAb clicked..", Toast.LENGTH_SHORT).show();
+        public void onButtonClicked(View view){
+            Toast.makeText(getApplicationContext(), "Button clicked..", Toast.LENGTH_SHORT).show();
         }
         
     }
